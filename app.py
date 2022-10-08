@@ -13,9 +13,6 @@ def home():
 
 @app.route('/', methods=['POST'])
 def predict():
-    '''
-    For rendering results on HTML GUI
-    '''
     outlook = int(request.form['outlook'])
     temperature = int(request.form['temperature'])
     humidity = int(request.form['humidity'])
@@ -29,7 +26,7 @@ def predict():
     if(output == 0):
         prediction = "Sorry, stay inside :("
     elif(output == 1):
-        prediction = "Yeah, U can play !!"
+        prediction = "Yeah, U can play outside, ground is waiting for you !!"
 
     return render_template('index.html', result=prediction, outlook=outlook, temperature=temperature, humidity=humidity, windy=windy)
 
